@@ -124,6 +124,9 @@ export default function Footer() {
             </a>
           </div>
         </div>
+        <div className="w-full text-center text-xs text-gray-400 mt-8">
+          Website built and maintained by Ashwin Rangamgari
+        </div>
       </div>
     </footer>
   );
