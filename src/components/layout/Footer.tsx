@@ -126,7 +126,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="w-full flex flex-col items-center mt-8 mb-2">
-        <img src="/ar-ashwin.svg" alt="Created by Ashwin Rangamgari" style={{ width: 64, height: 64, opacity: 0.7 }} />
+        <img src="/ar-ashwin.png" alt="Created by Ashwin Rangamgari" style={{ width: 64, height: 64, opacity: 0.7 }} />
         <span className="text-xs text-gray-400 mt-2">Site by Ashwin Rangamgari</span>
       </div>
     </footer>
