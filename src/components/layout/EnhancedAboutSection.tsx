@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { ParallaxSection } from "../ui/ParallaxBackground";
+import ceoImg from '../../../assets/ceo.jpg';
 
 export default function EnhancedAboutSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -627,7 +628,7 @@ export default function EnhancedAboutSection() {
           >
             <span className="relative inline-block">
               <img
-                src="/assets/ceo.jpg"
+                src={ceoImg}
                 alt="CEO/Founder"
                 className="w-32 h-32 md:w-44 md:h-44 rounded-full object-cover border-4 border-gold shadow-lg"
                 style={{ boxShadow: '0 4px 24px 0 rgba(212,175,55,0.18), 0 0 0 8px rgba(212,175,55,0.10)', objectFit: 'cover', objectPosition: 'center', transform: 'scale(1.35)' }}
