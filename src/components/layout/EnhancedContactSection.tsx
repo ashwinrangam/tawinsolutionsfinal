@@ -434,7 +434,7 @@ export default function EnhancedContactSection() {
                 ].map((icon, i) => (
                   <motion.a 
                     key={i}
-                    href="#" 
+                    href="https://www.linkedin.com/company/tawin-solutions" 
                     className="bg-gold/10 p-3 rounded-full hover:bg-gold/20 transition-colors"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={isContentInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
@@ -444,6 +444,8 @@ export default function EnhancedContactSection() {
                       boxShadow: "0 0 15px rgba(212, 175, 55, 0.4)"
                     }}
                     whileTap={{ scale: 0.95 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {icon}
                   </motion.a>
