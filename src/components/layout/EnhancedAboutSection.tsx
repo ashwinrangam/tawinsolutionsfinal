@@ -642,7 +642,7 @@ export default function EnhancedAboutSection() {
               transition={{ duration: 0.7, delay: 0.5 }}
             >
               <h4 className="text-xl font-bold leading-tight bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 text-transparent bg-clip-text drop-shadow-[0_2px_8px_rgba(212,175,55,0.5)]">Ravinder Rangamgari</h4>
-              <p className="text-base text-gray-300 font-medium">Founder & CEO, TAWIN Solutions</p>
+              <p className="text-base text-gray-300 font-medium">Founder & CTO, TAWIN Solutions</p>
               <p className="text-sm text-gray-400 italic">Visionary leader with a passion for building tomorrow's technology and empowering teams to innovate at scale.</p>
             </motion.div>
           </motion.div>
