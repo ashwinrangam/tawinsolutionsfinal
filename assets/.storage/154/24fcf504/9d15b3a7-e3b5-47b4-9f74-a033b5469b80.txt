@@ -1,0 +1,24 @@
+$ cd /workspace/uploads/workspace/shadcn-ui && git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   .mgx/config.yaml
+	modified:   package.json
+	modified:   src/components/layout/AboutSection.tsx
+	modified:   src/components/layout/ContactSection.tsx
+	new file:   src/components/layout/EnhancedAboutSection.tsx
+	new file:   src/components/layout/EnhancedContactSection.tsx
+	modified:   src/components/layout/HeroSection.tsx
+	new file:   src/components/layout/PremiumAboutSection.tsx
+	new file:   src/components/layout/PremiumContactSection.tsx
+	modified:   src/components/layout/ServicesSection.tsx
+	modified:   src/components/layout/TeamSection.tsx
+	modified:   src/components/layout/TestimonialsSection.tsx
+	new file:   src/components/ui/ParallaxBackground.tsx
+	new file:   src/components/ui/PremiumScrollProvider.tsx
+	new file:   src/components/ui/ScrollytellingProvider.tsx
+	new file:   src/components/ui/StorytellingBackground.tsx
+	modified:   src/lib/globals.css
+	modified:   src/pages/Index.tsx
+	new file:   src/utils/SplitText.ts
+

@@ -1,0 +1,13 @@
+$ ls -la
+total 11890
+drwxr-xr-x 349 root root 6094848 Jul 18 16:46 .
+drwxr-xr-x   1 root root     138 Jul 18 16:37 ..
+-rw-r--r--   1 root root  629386 Jul 18 16:25 .MGXEnv.json
+drwxr-xr-x   2 root root    4096 Jul 18 16:46 .MGXTools
+drwxr-xr-x 242 root root 2846720 Jul 18 16:11 .git
+-rw-rw-r--   1 root root    1472 Jul 18 16:00 .gitattributes
+-rw-rw-r--   1 root root     476 Jul 18 16:00 .gitignore
+-rw-r--r--   1 root root    1254 Jul 18 16:46 .timeline.json
+-rw-rw-r--   1 root root    3566 Jul 18 16:11 .wiki.md
+drwxrwxr-x  98 root root  671744 Jul 18 16:38 shadcn-ui
+drwxrwxr-x   4 root root 1921024 Jul 18 16:00 uploads

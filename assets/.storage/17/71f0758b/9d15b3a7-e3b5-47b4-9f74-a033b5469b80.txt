@@ -1,0 +1,92 @@
+$ ls /workspace
+uploads
+$ ls -la /workspace/uploads
+
+total 37228
+drwxr-xr-x 516 root root 11579392 Jul 18 19:51 .
+drwxr-xr-x 755 root root 14966784 Jul 18 20:02 ..
+drwxr-xr-x  98 root root   466944 Jul 18 19:51 .storage
+drwxr-xr-x  26 root root  1871872 Jul 18 19:51 build
+drwxr-xr-x   4 root root  1601536 Jul 18 19:51 cover
+drwxr-xr-x 390 root root  7634944 Jul 18 19:51 workspace
+$ ls -la /workspace/uploads/workspace
+
+total 26207
+drwxr-xr-x 390 root root  7634944 Jul 18 19:51 .
+drwxr-xr-x 516 root root 11579392 Jul 18 19:51 ..
+-rw-r--r--   1 root root  1378409 Jul 18 19:51 .MGXEnv.json
+drwxr-xr-x   3 root root     8192 Jul 18 19:51 .MGXTools
+drwxr-xr-x 282 root root  3624960 Jul 18 19:55 .git
+-rw-r--r--   1 root root     1472 Jul 18 19:51 .gitattributes
+-rw-r--r--   1 root root      476 Jul 18 19:51 .gitignore
+-rw-r--r--   1 root root     1896 Jul 18 19:51 .timeline.json
+-rw-r--r--   1 root root     3615 Jul 18 19:51 .wiki.md
+drwxr-xr-x  98 root root   679936 Jul 18 19:51 shadcn-ui
+drwxr-xr-x   4 root root  1921024 Jul 18 19:51 uploads
+$ cd /workspace/uploads/workspace/shadcn-ui && ls -la
+
+total 8742
+drwxr-xr-x  98 root root  679936 Jul 18 19:51 .
+drwxr-xr-x 390 root root 7634944 Jul 18 19:51 ..
+-rw-r--r--   1 root root     253 Jul 18 19:51 .gitignore
+drwxr-xr-x   3 root root    8192 Jul 18 19:51 .mgx
+-rw-r--r--   1 root root    1138 Jul 18 19:51 README.md
+-rw-r--r--   1 root root     414 Jul 18 19:51 components.json
+-rw-r--r--   1 root root     789 Jul 18 19:51 eslint.config.js
+-rw-r--r--   1 root root    1362 Jul 18 19:51 index.html
+-rw-r--r--   1 root root    2716 Jul 18 19:51 package.json
+-rw-r--r--   1 root root  174035 Jul 18 19:51 pnpm-lock.yaml
+-rw-r--r--   1 root root      80 Jul 18 19:51 postcss.config.js
+drwxr-xr-x   6 root root   20480 Jul 18 19:51 public
+drwxr-xr-x  76 root root  417792 Jul 18 19:51 src
+-rw-r--r--   1 root root    3639 Jul 18 19:51 tailwind.config.ts
+-rw-r--r--   1 root root     818 Jul 18 19:51 template_config.json
+-rw-r--r--   1 root root     652 Jul 18 19:51 tsconfig.app.json
+-rw-r--r--   1 root root     381 Jul 18 19:51 tsconfig.json
+-rw-r--r--   1 root root     481 Jul 18 19:51 tsconfig.node.json
+-rw-r--r--   1 root root     294 Jul 18 19:51 vite.config.ts
+$ ls -la src/
+
+total 1459
+drwxr-xr-x 76 root root 417792 Jul 18 19:51 .
+drwxr-xr-x 98 root root 679936 Jul 18 19:51 ..
+-rw-r--r--  1 root root      0 Jul 18 19:51 App.css
+-rw-r--r--  1 root root    924 Jul 18 19:51 App.tsx
+drwxr-xr-x 61 root root 356352 Jul 18 19:51 components
+drwxr-xr-x  4 root root  12288 Jul 18 19:51 hooks
+-rw-r--r--  1 root root     29 Jul 18 19:51 index.css
+drwxr-xr-x  4 root root  12288 Jul 18 19:51 lib
+-rw-r--r--  1 root root    161 Jul 18 19:51 main.tsx
+drwxr-xr-x  4 root root  12288 Jul 18 19:51 pages
+-rw-r--r--  1 root root     38 Jul 18 19:51 vite-env.d.ts
+$ cd /workspace/uploads/workspace/shadcn-ui && ls -la src/pages
+
+total 424
+drwxr-xr-x  4 root root  12288 Jul 18 19:51 .
+drwxr-xr-x 76 root root 417792 Jul 18 19:51 ..
+-rw-r--r--  1 root root   2879 Jul 18 19:51 Index.tsx
+-rw-r--r--  1 root root    921 Jul 18 19:51 NotFound.tsx
+$ cd /workspace/uploads/workspace/shadcn-ui && pnpm run lint
+
+
+> shadcnui@ lint /workspace/uploads/workspace/shadcn-ui
+> eslint --quiet ./src
+
+$ cd /workspace/uploads/workspace/shadcn-ui && ls
+
+README.md
+components.json
+eslint.config.js
+index.html
+node_modules
+package.json
+pnpm-lock.yaml
+postcss.config.js
+public
+src
+tailwind.config.ts
+template_config.json
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts

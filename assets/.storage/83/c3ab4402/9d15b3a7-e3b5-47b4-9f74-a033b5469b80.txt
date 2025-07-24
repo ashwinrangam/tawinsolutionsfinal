@@ -1,0 +1,16 @@
+$ cd /workspace/uploads/workspace/shadcn-ui && pnpm run lint
+
+> shadcnui@ lint /workspace/uploads/workspace/shadcn-ui
+> eslint --quiet ./src
+
+
+/workspace/uploads/workspace/shadcn-ui/src/components/layout/AboutSection.tsx
+  248:8  error  Parsing error: Expected corresponding JSX closing tag for 'motion.div'
+
+/workspace/uploads/workspace/shadcn-ui/src/components/ui/ParallaxBackground.tsx
+   32:19  error  React Hook "useTransform" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function  react-hooks/rules-of-hooks
+  102:19  error  React Hook "useTransform" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function  react-hooks/rules-of-hooks
+
+✖ 3 problems (3 errors, 0 warnings)
+
+ ELIFECYCLE  Command failed with exit code 1.

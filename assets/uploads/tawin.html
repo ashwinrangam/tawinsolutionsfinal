@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Dark Theme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap">
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" as="script">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.3);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease;
+        }
+        
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.4s ease, width 0.3s ease, height 0.3s ease;
+        }
+        
+        .cursor.active {
+            transform: translate(-50%, -50%) scale(1.5);
+            background: rgba(212, 175, 55, 0.5);
+        }
+        
+        .cursor-follower.active {
+            transform: translate(-50%, -50%) scale(1.3);
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .typewriter {
+            border-right: 3px solid #D4AF37;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            letter-spacing: 0.05em;
+            animation: 
+                typing 2.5s steps(30, end) 0.5s 1 normal both,
+                blinkCursor 0.75s step-end infinite;
+        }
+        
+        .typewriter-delay {
+            opacity: 0;
+            animation: fadeIn 1s ease-out 3s forwards;
+        }
+        
+        .highlight-phrase {
+            position: relative;
+            color: #D4AF37;
+            font-weight: 600;
+        }
+        
+        .highlight-phrase::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #D4AF37;
+            transition: width 0.6s ease-out;
+        }
+        
+        .highlight-phrase.in-view::after {
+            width: 100%;
+        }
+        
+        .pulse-cta {
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blinkCursor {
+            from, to { border-color: transparent }
+            50% { border-color: #D4AF37 }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn-pulse:hover {
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .fade-in-delay-1 {
+            animation: fadeIn 0.8s ease-out 0.2s forwards;
+        }
+        .fade-in-delay-2 {
+            animation: fadeIn 0.8s ease-out 0.4s forwards;
+        }
+        .glass-card {
+            background: rgba(23, 42, 69, 0.6);  // More transparent
+            backdrop-filter: blur(8px);  // Reduced blur
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.15);  // Gold border
+            box-shadow: 
+                0 4px 16px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(212, 175, 55, 0.05);  // Inner gold glow
+            will-change: backdrop-filter, box-shadow;  // Optimize for GPU
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(212, 175, 55, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #D4AF37 0%, #64ffda 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a192f 0%, #172a45 100%);
+        }
+        .hover-grow {
+            transition: 
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s ease;
+            will-change: transform;
+        }
+        .hover-grow:hover {
+            transform: translateY(-3px) scale(1.02);  // More subtle effect
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gold accent hover states */
+        .gold-accent:hover {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Smooth link underlines */
+        .nav-link::after {
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .btn-pulse:hover {
+            animation: pulse 1.5s infinite;
+            background: linear-gradient(90deg, #D4AF37 0%, #D4AF37/80 100%);
+        }
+        
+        .btn-shake:hover i {
+            animation: shake 0.5s ease infinite;
+        }
+        
+        .btn-shake:hover::after {
+            animation: shake 0.5s ease infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-3px); }
+            40%, 80% { transform: translateX(3px); }
+        }
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #64ffda;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .gold-accent {
+            border-color: #D4AF37;
+        }
+        .gold-accent:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Animation Classes */
+        .gsap-fade {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .gsap-pop {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        
+        .gradient-wipe {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gradient-wipe::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a192f 0%, #172a45 100%);
+            z-index: 1;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        /* About Section Styles */
+        .parallax-element {
+            transition: transform 0.3s ease-out;
+        }
+
+        /* Client Carousel Styles */
+        .client-carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 800px;  // Reduced perspective for performance
+            height: 100%;
+            will-change: transform;  // Optimize for GPU
+        }
+
+        .client-logo {
+            width: 120px;  // Smaller for mobile
+            height: 60px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0 20px;  // Reduced margin
+            filter: grayscale(100%) brightness(1.8);
+            opacity: 0.8;
+            transition: 
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.4s ease,
+                opacity 0.4s ease;
+            transform-style: preserve-3d;
+            will-change: transform, filter, opacity;  // Optimize for GPU
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0) brightness(1);
+            opacity: 1;
+            transform: scale(1.15) translateZ(30px);  // More subtle effect
+        }
+
+        @media (max-width: 768px) {
+            .client-logo {
+                width: 80px;
+                height: 40px;
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen font-['Montserrat'] text-gray-300">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#0a192f]/90 backdrop-blur-md fade-in">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex flex-col items-center">
+
+                    <div class="flex flex-col items-center -mt-1">
+                        <span class="text-xl font-['Playfair_Display'] font-bold tracking-widest text-[#D4AF37]">TAWIN</span>
+                        <span class="text-sm font-['Montserrat'] font-semibold tracking-[0.2em] uppercase text-[#D4AF37]">CONSULTANCY</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-10">
+                    <a href="#" class="nav-link text-sm font-medium hover:text-[#64ffda] transition-colors">Home</a>
+                    <a href="#features" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})" class="nav-link text-sm font-medium hover:text-[#64ffda] transition-colors">Services</a>
+                    <a href="#our-journey" onclick="document.getElementById('our-journey').scrollIntoView({behavior: 'smooth'})" class="nav-link text-sm font-medium hover:text-[#64ffda] transition-colors">About</a>
+                    <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="nav-link text-sm font-medium hover:text-[#64ffda] transition-colors">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="hidden md:block px-6 py-2 rounded-full border gold-accent text-sm font-medium hover:text-[#D4AF37] transition-colors">
+                        Sign In
+                    </button>
+                    <button class="md:hidden text-xl" aria-label="Toggle menu" aria-expanded="false" id="mobile-menu-button">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center px-6 overflow-hidden gradient-bg">
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10 px-4">
+            <div class="space-y-8">
+                <div class="mb-8">
+                    <h1 class="text-5xl md:text-7xl font-['Playfair_Display'] font-bold leading-tight tracking-tight">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] via-[#F5D78E] to-[#D4AF37]">TAWIN</span>
+                    </h1>
+                    <p class="text-sm font-['Montserrat'] tracking-widest text-[#D4AF37] mt-2">GLOBAL CONSULTANTS</p>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-['Playfair_Display'] font-medium text-white mb-8">
+                    <span class="typewriter">Elevating Enterprise Strategy</span>
+                </h2>
+                <div class="max-w-2xl mx-auto">
+                    <p class="text-lg md:text-xl font-['Montserrat'] text-gray-300 leading-relaxed typewriter-delay">
+                        TAWIN partners with <span class="highlight-phrase">C-suite executives</span> to craft winning strategies that deliver <span class="highlight-phrase">sustainable competitive advantage</span> in complex global markets.
+                    </p>
+                </div>
+                <div class="pt-8">
+                    <button onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})" 
+                            class="px-8 py-4 bg-gradient-to-r from-[#D4AF37]/90 to-[#D4AF37]/70 text-[#0a192f] rounded-full font-medium hover:from-[#D4AF37] hover:to-[#F5D78E] transition-all duration-300 hover:scale-105 pulse-cta">
+                        Explore Our Approach <i class="fas fa-chevron-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6 fade-in-delay-2 relative" style="background-color: #0a192f; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjMGExOTJmIi8+PHBhdGggZD0iTTAgMTBMMTAgMEwyMCAxMEwxMCAyMFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzE3MmE0NSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48L3N2Zz4=');">
+        <div class="max-w-7xl mx-auto">
+            <div id="services-header" class="text-center mb-16 opacity-0">
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
+                    <span class="text-[#D4AF37]">Global Strategic</span> Services
+                </h2>
+                <p class="max-w-2xl mx-auto opacity-80">
+                    We deliver transformative solutions that drive measurable impact and sustainable growth.
+                </p>
+            </div>
+            
+            <!-- Premium Services Cards -->
+            <div id="services-cards" class="grid md:grid-cols-3 gap-8 opacity-0">
+                <!-- Service 1: Market Strategy -->
+                <div class="service-card bg-gradient-to-br from-[#0a192f] to-[#172a45] rounded-xl p-8 border border-[#293854] shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl relative group overflow-hidden">
+                    <!-- Decorative glowing orb in background -->
+                    <div class="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-[#64ffda]/5 filter blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    
+                    <!-- Icon with animated glow effect -->
+                    <div class="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#0a192f] to-[#172a45] border border-[#64ffda]/30 flex items-center justify-center mb-6 group-hover:border-[#64ffda] transition-all duration-500 shadow-[0_0_15px_rgba(100,255,218,0.1)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#64ffda" class="w-8 h-8 group-hover:text-[#64ffda] transition-all duration-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17l6-6-6-6" />
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 text-white group-hover:text-[#64ffda] transition-colors duration-500">Market Strategy</h3>
+                    
+                    <p class="text-gray-300 mb-6 group-hover:text-white transition-colors duration-500">
+                        Comprehensive analysis of market dynamics to position your business for maximum competitive advantage and sustainable growth.
+                    </p>
+                    
+                    <!-- Expandable content that appears on hover -->
+                    <div class="h-0 overflow-hidden opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 text-sm border-t border-[#64ffda]/20 pt-4 mt-4">
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#64ffda] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Market Opportunity Analysis
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#64ffda] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Competitive Positioning
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#64ffda] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Growth Strategy Development
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 2: Digital Transformation -->
+                <div class="service-card bg-gradient-to-br from-[#0a192f] to-[#172a45] rounded-xl p-8 border border-[#293854] shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl relative group overflow-hidden">
+                    <!-- Decorative glowing orb in background -->
+                    <div class="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-[#D4AF37]/5 filter blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    
+                    <!-- Icon with animated glow effect -->
+                    <div class="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#0a192f] to-[#172a45] border border-[#D4AF37]/30 flex items-center justify-center mb-6 group-hover:border-[#D4AF37] transition-all duration-500 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#D4AF37" class="w-8 h-8 group-hover:text-[#D4AF37] transition-all duration-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 text-white group-hover:text-[#D4AF37] transition-colors duration-500">Digital Transformation</h3>
+                    
+                    <p class="text-gray-300 mb-6 group-hover:text-white transition-colors duration-500">
+                        Future-proof your business with cutting-edge digital solutions and strategic technology integration tailored to your objectives.
+                    </p>
+                    
+                    <!-- Expandable content that appears on hover -->
+                    <div class="h-0 overflow-hidden opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 text-sm border-t border-[#D4AF37]/20 pt-4 mt-4">
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#D4AF37] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Technology Strategy & Roadmap
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#D4AF37] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Process Automation
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#D4AF37] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Legacy System Modernization
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 3: Corporate Innovation -->
+                <div class="service-card bg-gradient-to-br from-[#0a192f] to-[#172a45] rounded-xl p-8 border border-[#293854] shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl relative group overflow-hidden">
+                    <!-- Decorative glowing orb in background -->
+                    <div class="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-[#F5D78E]/5 filter blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    
+                    <!-- Icon with animated glow effect -->
+                    <div class="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#0a192f] to-[#172a45] border border-[#F5D78E]/30 flex items-center justify-center mb-6 group-hover:border-[#F5D78E] transition-all duration-500 shadow-[0_0_15px_rgba(245,215,142,0.1)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#F5D78E" class="w-8 h-8 group-hover:text-[#F5D78E] transition-all duration-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-4 text-white group-hover:text-[#F5D78E] transition-colors duration-500">Corporate Innovation</h3>
+                    
+                    <p class="text-gray-300 mb-6 group-hover:text-white transition-colors duration-500">
+                        Develop innovation capabilities and strategic frameworks to foster continuous growth and maintain market leadership.
+                    </p>
+                    
+                    <!-- Expandable content that appears on hover -->
+                    <div class="h-0 overflow-hidden opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 text-sm border-t border-[#F5D78E]/20 pt-4 mt-4">
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#F5D78E] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Innovation Strategy
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#F5D78E] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Corporate Venture Building
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#F5D78E] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Design Thinking Workshops
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-3">Growth Strategy</h3>
+                    <p class="opacity-80">
+                        Data-driven strategies to accelerate revenue, expand markets, and outperform competitors.
+                    </p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="glass-card rounded-xl p-8 transition-all duration-500 hover:border-[#D4AF37] hover:border-opacity-50 hover:rotate-1 hover:scale-[1.01]"
+                     data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-full bg-[#64ffda]/10 flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#64ffda" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-3">Operational Excellence</h3>
+                    <p class="opacity-80">
+                        Streamline processes and maximize efficiency through lean methodologies and automation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 px-6 gradient-wipe">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <!-- Left - Parallax Team Photo -->
+            <div class="relative h-96 overflow-hidden rounded-xl" data-aos="fade-right">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#0a192f] to-[#172a45] opacity-70"></div>
+                <img src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Professional Team" 
+                     class="w-full h-full object-cover parallax-element">
+            </div>
+            
+            <!-- Right - Text Content -->
+            <div class="space-y-6" data-aos="fade-left">
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold">
+                    <span class="gradient-text">Our Story</span> of Excellence
+                </h2>
+                <p class="opacity-90">
+                    Founded in 2010, we've grown from a boutique consultancy to a global leader in strategic transformation. Our team of industry veterans brings decades of collective experience to every engagement.
+                </p>
+                <div class="pt-4">
+                    <button class="px-6 py-3 border border-[#D4AF37] text-[#D4AF37] rounded-full font-medium hover:bg-[#D4AF37]/10 transition-colors">
+                        Meet Our Team
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Timeline -->
+    <section id="our-journey" class="py-20 px-6 bg-[#0a192f]/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
+                    Our <span class="gradient-text">Journey</span>
+                </h2>
+            </div>
+            
+            <div class="relative">
+                <!-- Vertical Gold Line -->
+                <div class="absolute left-1/2 h-full w-px bg-gradient-to-b from-[#D4AF37] via-[#D4AF37]/50 to-[#D4AF37] transform -translate-x-1/2"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-16">
+                    <!-- Milestone 1 -->
+                    <div class="relative grid grid-cols-2 gap-8 items-center" data-aos="fade-up">
+                        <div class="text-right pr-8">
+                            <h3 class="text-xl font-['Playfair_Display'] font-semibold text-[#D4AF37]">2010</h3>
+                            <p class="opacity-90">Founded in New York with 3 team members</p>
+                        </div>
+                        <div class="flex justify-start pl-8">
+                            <div class="w-6 h-6 rounded-full bg-[#D4AF37] border-4 border-[#0a192f] shadow-lg"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 2 -->
+                    <div class="relative grid grid-cols-2 gap-8 items-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex justify-end pr-8">
+                            <div class="w-6 h-6 rounded-full bg-[#D4AF37] border-4 border-[#0a192f] shadow-lg"></div>
+                        </div>
+                        <div class="text-left pl-8">
+                            <h3 class="text-xl font-['Playfair_Display'] font-semibold text-[#D4AF37]">2014</h3>
+                            <p class="opacity-90">Expanded to European markets</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 3 -->
+                    <div class="relative grid grid-cols-2 gap-8 items-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-right pr-8">
+                            <h3 class="text-xl font-['Playfair_Display'] font-semibold text-[#D4AF37]">2018</h3>
+                            <p class="opacity-90">Named Top Consulting Firm by Forbes</p>
+                        </div>
+                        <div class="flex justify-start pl-8">
+                            <div class="w-6 h-6 rounded-full bg-[#D4AF37] border-4 border-[#0a192f] shadow-lg"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 4 -->
+                    <div class="relative grid grid-cols-2 gap-8 items-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex justify-end pr-8">
+                            <div class="w-6 h-6 rounded-full bg-[#D4AF37] border-4 border-[#0a192f] shadow-lg"></div>
+                        </div>
+                        <div class="text-left pl-8">
+                            <h3 class="text-xl font-['Playfair_Display'] font-semibold text-[#D4AF37]">2023</h3>
+                            <p class="opacity-90">Global presence with 500+ consultants</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Carousel -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
+                    Trusted by <span class="gradient-text">Global Leaders</span>
+                </h2>
+            </div>
+            
+            <div class="relative h-48">
+                <!-- Client Logos Carousel -->
+                <div class="client-carousel">
+                    <div class="client-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png')"></div>
+                    <div class="client-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/2560px-Microsoft_logo_%282012%29.svg.png')"></div>
+                    <div class="client-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1667px-Apple_logo_black.svg.png')"></div>
+                    <div class="client-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Walmart_logo.svg/2560px-Walmart_logo.svg.png')"></div>
+                    <div class="client-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/IBM_logo.svg/2560px-IBM_logo.svg.png')"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-16">
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4 md:mb-0">
+                    Our <span class="gradient-text">Signature</span> Collection
+                </h2>
+                <div class="flex space-x-2">
+                    <button class="w-10 h-10 rounded-full border border-[#64ffda] flex items-center justify-center text-[#64ffda] hover:bg-[#64ffda]/10 transition-colors">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="w-10 h-10 rounded-full border border-[#64ffda] flex items-center justify-center text-[#64ffda] hover:bg-[#64ffda]/10 transition-colors">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="glass-card rounded-xl overflow-hidden hover-grow group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2d55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" 
+                             alt="Product 1" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a192f] to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-[#64ffda] text-[#0a192f] text-xs font-medium px-2 py-1 rounded">NEW</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-2">Horizon Watch</h3>
+                        <p class="text-sm opacity-80 mb-4">Limited edition timepiece with sapphire crystal</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-medium text-[#D4AF37]">$2,450</span>
+                            <button class="text-[#64ffda] hover:text-[#D4AF37] transition-colors">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="glass-card rounded-xl overflow-hidden hover-grow group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1399&q=80" 
+                             alt="Product 2" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a192f] to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-2">Eternal Ring</h3>
+                        <p class="text-sm opacity-80 mb-4">18k gold with ethically sourced diamonds</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-medium text-[#D4AF37]">$3,200</span>
+                            <button class="text-[#64ffda] hover:text-[#D4AF37] transition-colors">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="glass-card rounded-xl overflow-hidden hover-grow group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Product 3" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a192f] to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-[#D4AF37] text-[#0a192f] text-xs font-medium px-2 py-1 rounded">BESTSELLER</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-['Playfair_Display'] font-semibold mb-2">Noir Sunglasses</h3>
+                        <p class="text-sm opacity-80 mb-4">Handcrafted acetate frames with 24k gold details</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-medium text-[#D4AF37]">$780</span>
+                            <button class="text-[#64ffda] hover:text-[#D4AF37] transition-colors">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
+                    Voices of <span class="gradient-text">Distinction</span>
+                </h2>
+                <p class="max-w-2xl mx-auto opacity-80">
+                    Hear from our esteemed clients about their experiences with our luxury offerings.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Elizabeth Windsor</h4>
+                            <p class="text-sm opacity-70">CEO, Royal Holdings</p>
+                        </div>
+                    </div>
+                    <p class="opacity-90 italic mb-6">
+                        "The attention to detail and craftsmanship is simply unparalleled. Each piece tells a story of excellence that resonates with my personal aesthetic."
+                    </p>
+                    <div class="flex text-[#D4AF37]">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium">James Vanderbilt</h4>
+                            <p class="text-sm opacity-70">Founder, Vanderbilt & Co.</p>
+                        </div>
+                    </div>
+                    <p class="opacity-90 italic mb-6">
+                        "In a world of mass production, finding true artisanship is rare. This brand delivers not just products, but heirlooms that will stand the test of time."
+                    </p>
+                    <div class="flex text-[#D4AF37]">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto glass-card rounded-2xl p-12 text-center relative overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-[#64ffda]/10 rounded-full blur-3xl"></div>
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-6">
+                    Begin Your <span class="gradient-text">Luxury Journey</span> Today
+                </h2>
+                <p class="text-lg opacity-90 mb-8">
+                    Join our exclusive community and receive early access to new collections, private events, and personalized consultations.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <input type="email" placeholder="Your email address" 
+                           class="flex-grow max-w-md px-6 py-3 bg-[#172a45]/50 border border-[#64ffda]/30 rounded-full focus:outline-none focus:ring-2 focus:ring-[#64ffda] focus:border-transparent">
+                    <button class="px-8 py-3 bg-gradient-to-r from-[#64ffda] to-[#D4AF37] text-[#0a192f] rounded-full font-medium hover:opacity-90 transition-opacity whitespace-nowrap">
+                        Subscribe Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky CTA Ribbon -->
+    <div class="fixed bottom-0 left-0 w-full bg-gradient-to-r from-[#D4AF37] to-[#D4AF37]/80 py-3 px-6 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <span class="text-[#0a192f] font-medium">Schedule your complimentary consultation today</span>
+            <a href="#contact" class="sticky-cta flex items-center text-[#0a192f] font-semibold hover:underline">
+                Schedule Consultation <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-[#0a192f] py-24 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Interactive Map Background -->
+            <div id="global-map" class="absolute inset-0 opacity-20 z-0 overflow-hidden">
+                <!-- Map will be rendered here by JavaScript -->
+            </div>
+            
+            <!-- Contact Content -->
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Column - Text -->
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-8 typewriter-contact opacity-0">
+                        <span>Forge the Future with TAWIN</span>
+                    </h2>
+                    
+                    <p class="text-lg mb-8 text-gray-300 max-w-xl">
+                        Strategic partnerships begin here. Whether scaling operations, modernizing legacy systems, or securing competitive intelligence—share your vision. Our advisors respond within 
+                        <span class="relative inline-block">
+                            <span class="text-[#D4AF37] font-semibold">24 hours</span>
+                            <span class="absolute bottom-0 left-0 w-0 border-b-2 border-[#D4AF37] animated-underline"></span>
+                        </span>
+                    </p>
+                    
+                    <button id="contact-cta" class="bg-transparent hover:bg-[#D4AF37] text-[#D4AF37] hover:text-[#0a192f] border-2 border-[#D4AF37] font-semibold py-3 px-8 rounded-md transition-all duration-300 group relative overflow-hidden">
+                        <span class="relative z-10">Schedule Consultation</span>
+                        <span class="absolute inset-0 bg-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+                    </button>
+                </div>
+                
+                <!-- Right Column - Contact Form (Initially Hidden) -->
+                <div id="contact-form-container" class="bg-[#0c1f3a] p-8 rounded-xl shadow-2xl border border-[#1d2f4f] transform translate-x-full opacity-0 transition-all duration-500">
+                    <h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-6 text-white">Let's Discuss Your Vision</h3>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="w-full bg-[#172a45] border border-[#1d2f4f] rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all duration-300" required>
+                        </div>
+                        
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-gray-300 mb-1">Company</label>
+                            <input type="text" id="company" name="company" class="w-full bg-[#172a45] border border-[#1d2f4f] rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all duration-300" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full bg-[#172a45] border border-[#1d2f4f] rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all duration-300" required>
+                        </div>
+                        
+                        <div>
+                            <label for="challenge" class="block text-sm font-medium text-gray-300 mb-1">Describe Your Strategic Challenge</label>
+                            <textarea id="challenge" name="challenge" rows="4" class="w-full bg-[#172a45] border border-[#1d2f4f] rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all duration-300" required></textarea>
+                        </div>
+                        
+                        <div class="pt-2">
+                            <button type="submit" class="w-full bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0a192f] font-semibold py-3 px-6 rounded-md transition-all duration-300 relative overflow-hidden group">
+                                <span class="relative z-10">Submit</span>
+                                <span class="absolute inset-0 bg-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Canvas for confetti effect -->
+        <canvas id="confetti-canvas" class="absolute inset-0 z-20 pointer-events-none hidden"></canvas>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a192f] py-12 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background: 
+            linear-gradient(135deg, transparent 48%, #D4AF37 49%, #D4AF37 51%, transparent 52%),
+            linear-gradient(45deg, transparent 48%, #D4AF37 49%, #D4AF37 51%, transparent 52%);
+            background-size: 40px 40px;"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col items-center">
+                <div>
+                    <div class="flex flex-col items-start mb-6">
+                        <div class="relative">
+                            <div class="w-10 h-10 flex items-center justify-center">
+                                <span class="text-3xl font-['Playfair_Display'] font-bold text-[#64ffda]">T</span>
+                                <span class="absolute bottom-0 text-3xl font-['Playfair_Display'] font-bold text-[#64ffda]">W</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-start mt-2">
+                            <span class="text-sm font-['Playfair_Display'] font-bold tracking-widest text-[#64ffda]">TAWIN</span>
+                            <span class="text-[10px] font-['Montserrat'] tracking-widest text-[#64ffda]/80">CONSULTANCY</span>
+                        </div>
+                    </div>
+                    <p class="opacity-80 mb-6">
+                        Redefining luxury for the modern connoisseur through exceptional craftsmanship and timeless design.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-[#172a45] flex items-center justify-center hover:bg-[#64ffda] hover:text-[#0a192f] transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-[#172a45] flex items-center justify-center hover:bg-[#64ffda] hover:text-[#0a192f] transition-colors">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-[#172a45] flex items-center justify-center hover:bg-[#64ffda] hover:text-[#0a192f] transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-6">Collections</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="opacity-80 hover:text-[#64ffda] transition-colors">Timepieces</a></li>
+                        <li><a href="#" class="opacity-80 hover:text-[#64ffda] transition-colors">Jewelry</a></li>
+                        <li><a href="#" class="opacity-80 hover:text-[#64ffda] transition-colors">Accessories</a></li>
+                        <li><a href="#" class="opacity-80 hover:text-[#64ffda] transition-colors">Limited Editions</a></li>
+                        <li><a href="#" class="opacity-80 hover:text-[#64ffda] transition-colors">Archives</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="opacity-80 hover:text-[#64ffda] transition-colors">Personal Shopping</a></li>
+                        <li><a href="#" class="opacity-80 hover:text-[#64ffda] transition-colors">Custom Design</a></li>
+                        <li><a href="#" class="opacity-80 hover:text-[#64ffda] transition-colors">Gift Services</a></li>
+                        <li><a href="#" class="opacity-80 hover:text-[#64ffda] transition-colors">Repairs & Care</a></li>
+                        <li><a href="#" class="opacity-80 hover:text-[#64ffda] transition-colors">Appointments</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-['Playfair_Display'] font-semibold mb-6">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-[#64ffda] mt-1 mr-3"></i>
+                            <span class="opacity-80">123 Luxury Avenue<br>New York, NY 10001</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-[#64ffda] mr-3"></i>
+                            <span class="opacity-80">+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-[#64ffda] mr-3"></i>
+                            <span class="opacity-80"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4f2c20213b2e2c3b0f233a373a3d362a372e223f232a612c2022">[email&#160;protected]</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-[#172a45] mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm opacity-70 mb-4 md:mb-0">
+                    © 2023 Luxury Brand. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm opacity-70 hover:text-[#64ffda] transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-sm opacity-70 hover:text-[#64ffda] transition-colors">Terms of Service</a>
+                    <a href="#" class="text-sm opacity-70 hover:text-[#64ffda] transition-colors">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Highlight phrase animation on scroll
+        const highlightPhrases = document.querySelectorAll('.highlight-phrase');
+        
+        const highlightObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        highlightPhrases.forEach(phrase => {
+            highlightObserver.observe(phrase);
+        });
+        
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 60, density: { enable: true, value_area: 1000 } },
+                    color: { value: "#D4AF37" },
+                    shape: {
+                        type: ["circle", "triangle"],
+                        stroke: { width: 0, color: "#000000" },
+                        polygon: { nb_sides: 5 }
+                    },
+                    opacity: { 
+                        value: 0.7,
+                        random: true,
+                        anim: { enable: true, speed: 1, opacity_min: 0.1 }
+                    },
+                    size: { 
+                        value: 3, 
+                        random: true,
+                        anim: { enable: true, speed: 2, size_min: 1, size_max: 5 }
+                    },
+                    line_linked: { 
+                        enable: true,
+                        distance: 120,
+                        color: "#D4AF37",
+                        opacity: 0.2,
+                        width: 0.5
+                    },
+                    move: {
+                        enable: true,
+                        speed: 1,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false,
+                        attract: { enable: false }
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "repulse" },
+                        onclick: { enable: true, mode: "push" }
+                    }
+                }
+            });
+        });
+
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial state for animated elements
+            const animatedElements = document.querySelectorAll('.fade-in, .fade-in-delay-1, .fade-in-delay-2');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+            });
+
+            // Enhanced mobile menu with accessibility
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.querySelector('.hidden.md\\:flex.space-x-10');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                mobileMenu.classList.toggle('flex-col');
+                mobileMenu.classList.toggle('absolute');
+                mobileMenu.classList.toggle('top-16');
+                mobileMenu.classList.toggle('left-0');
+                mobileMenu.classList.toggle('w-full');
+                mobileMenu.classList.toggle('bg-[#0a192f]');
+                mobileMenu.classList.toggle('p-4');
+                mobileMenu.classList.toggle('space-y-4');
+                mobileMenu.classList.toggle('space-x-0');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+        // Initialize GSAP with optimized settings
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.config({
+            force3D: false,  // Better performance
+            autoSleep: true  // Reduces CPU usage
+        });
+
+        // Coordinated scroll animations
+        gsap.utils.toArray('[data-animate]').forEach((el, i) => {
+            const delay = i * 0.1;
+            gsap.from(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                    markers: false
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                delay: delay,
+                ease: "back.out(1.2)",
+                overwrite: "auto"
+            });
+        });
+
+        // Parallax effects
+        gsap.utils.toArray('.parallax-element').forEach(el => {
+            gsap.to(el, {
+                yPercent: 15,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: el,
+                    scrub: 0.5
+                }
+            });
+        });
+        
+        // Pop animations for cards
+        gsap.utils.toArray('.gsap-pop').forEach(el => {
+            gsap.from(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                scale: 0.95,
+                duration: 0.8,
+                ease: "back.out(1.7)"
+            });
+        });
+        
+        // Section transition wipes
+        gsap.utils.toArray('.gradient-wipe').forEach((section, i) => {
+            if (i > 0) {
+                gsap.from(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top bottom",
+                        toggleActions: "play none none none"
+                    },
+                    clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)',
+                    duration: 1.2,
+                    ease: "power2.inOut"
+                });
+            }
+        });
+        
+        // Add pulse and shake classes to all interactive elements
+        document.querySelectorAll('button, a[href], .hover-grow').forEach(el => {
+            if (el.tagName === 'BUTTON' || el.tagName === 'A') {
+                el.classList.add('btn-pulse', 'btn-shake');
+            }
+        });
+
+        // Custom Cursor
+        const cursor = document.createElement('div');
+        cursor.classList.add('cursor');
+        document.body.appendChild(cursor);
+        
+        const cursorFollower = document.createElement('div');
+        cursorFollower.classList.add('cursor-follower');
+        document.body.appendChild(cursorFollower);
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+        
+        document.querySelectorAll('a, button, input, .hover-grow').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('active');
+                cursorFollower.classList.add('active');
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('active');
+                cursorFollower.classList.remove('active');
+            });
+        });
+    </script>
+    
+    <!-- Services Section Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Services Section Animation
+            // Animate the services header when scrolled into view
+            function checkServicesSectionVisibility() {
+                const servicesHeader = document.getElementById('services-header');
+                const serviceCards = document.querySelectorAll('.service-card');
+                const servicesSection = document.getElementById('features');
+                
+                if (isElementInViewport(servicesSection)) {
+                    // Animate header first
+                    setTimeout(() => {
+                        if (servicesHeader) {
+                            servicesHeader.style.opacity = '1';
+                            servicesHeader.style.transform = 'translateY(0)';
+                            servicesHeader.style.transition = 'opacity 1s ease, transform 1s ease';
+                        }
+                        
+                        // Then animate cards with staggered effect
+                        setTimeout(() => {
+                            const cardsContainer = document.getElementById('services-cards');
+                            if (cardsContainer) {
+                                cardsContainer.style.opacity = '1';
+                                cardsContainer.style.transition = 'opacity 0.5s ease';
+                            }
+                            
+                            serviceCards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                    card.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                                }, 200 * index);
+                            });
+                        }, 500);
+                    }, 200);
+                    
+                    // Remove the scroll listener once animation is triggered
+                    window.removeEventListener('scroll', checkServicesSectionVisibility);
+                }
+            }
+            
+            // Helper function to check if element is in viewport
+            function isElementInViewport(el) {
+                if (!el) return false;
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.7 &&
+                    rect.bottom >= 0
+                );
+            }
+            
+            // Add initial styling for service cards (hidden by default)
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+            });
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', checkServicesSectionVisibility);
+            
+            // Trigger scroll check on initial load
+            setTimeout(checkServicesSectionVisibility, 500);
+            
+            // Add hover effect for service cards
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const title = card.querySelector('h3');
+                    if (title) {
+                        title.style.transform = 'scale(1.05)';
+                        title.style.transition = 'transform 0.3s ease';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const title = card.querySelector('h3');
+                    if (title) {
+                        title.style.transform = 'scale(1)';
+                        title.style.transition = 'transform 0.3s ease';
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Contact Section Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // CSS for animated underline
+            const style = document.createElement('style');
+            style.textContent = `
+                .animated-underline {
+                    transition: width 0.8s ease;
+                }
+                
+                .typewriter-contact {
+                    border-right: 3px solid #D4AF37;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    display: inline-block;
+                    letter-spacing: 0.05em;
+                }
+                
+                .typing-contact {
+                    animation: 
+                        typing 3s steps(40, end) forwards,
+                        blinkCursor 0.75s step-end infinite;
+                }
+                
+                @keyframes typing {
+                    from { width: 0 }
+                    to { width: 100% }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Interactive Map
+            function initGlobalMap() {
+                const mapContainer = document.getElementById('global-map');
+                if (!mapContainer) return;
+                
+                // City coordinates (approximate - for visual effect only)
+                const cities = [
+                    { name: 'New York', x: 25, y: 40, scale: 1.2 },
+                    { name: 'London', x: 45, y: 35, scale: 1.5 },
+                    { name: 'Tokyo', x: 82, y: 42, scale: 1.3 },
+                    { name: 'Singapore', x: 75, y: 58, scale: 1.4 },
+                    { name: 'Dubai', x: 60, y: 48, scale: 1.1 },
+                    { name: 'Sydney', x: 85, y: 70, scale: 1.2 },
+                    { name: 'Paris', x: 48, y: 38, scale: 1.0 },
+                    { name: 'Mumbai', x: 68, y: 52, scale: 1.3 },
+                    { name: 'São Paulo', x: 32, y: 65, scale: 1.1 }
+                ];
+                
+                // Create world map outline SVG
+                mapContainer.innerHTML = `
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path class="world-map-outline" d="M10,40 C20,37 30,43 40,40 C50,37 60,43 70,40 C80,37 90,43 100,40 L100,70 C90,67 80,73 70,70 C60,67 50,73 40,70 C30,67 20,73 10,70 Z" 
+                              fill="none" stroke="#D4AF37" stroke-width="0.2" opacity="0.3" />
+                    </svg>
+                `;
+                
+                // Add city nodes
+                cities.forEach(city => {
+                    const cityNode = document.createElement('div');
+                    cityNode.classList.add('city-node');
+                    cityNode.style.position = 'absolute';
+                    cityNode.style.left = `${city.x}%`;
+                    cityNode.style.top = `${city.y}%`;
+                    cityNode.style.width = `${0.5 * city.scale}rem`;
+                    cityNode.style.height = `${0.5 * city.scale}rem`;
+                    cityNode.style.borderRadius = '50%';
+                    cityNode.style.backgroundColor = '#D4AF37';
+                    cityNode.style.boxShadow = '0 0 15px 5px rgba(212, 175, 55, 0.4)';
+                    cityNode.style.opacity = '0';
+                    cityNode.style.transform = 'scale(0)';
+                    cityNode.style.transition = 'opacity 0.8s ease, transform 1s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                    
+                    const cityLabel = document.createElement('div');
+                    cityLabel.classList.add('city-label');
+                    cityLabel.textContent = city.name;
+                    cityLabel.style.position = 'absolute';
+                    cityLabel.style.top = '100%';
+                    cityLabel.style.left = '50%';
+                    cityLabel.style.transform = 'translateX(-50%)';
+                    cityLabel.style.color = '#D4AF37';
+                    cityLabel.style.fontSize = '0.6rem';
+                    cityLabel.style.fontWeight = 'bold';
+                    cityLabel.style.opacity = '0';
+                    cityLabel.style.transition = 'opacity 0.5s ease';
+                    cityLabel.style.whiteSpace = 'nowrap';
+                    
+                    cityNode.appendChild(cityLabel);
+                    mapContainer.appendChild(cityNode);
+                    
+                    // Add pulsing animation
+                    const pulse = document.createElement('div');
+                    pulse.classList.add('city-pulse');
+                    pulse.style.position = 'absolute';
+                    pulse.style.left = '50%';
+                    pulse.style.top = '50%';
+                    pulse.style.transform = 'translate(-50%, -50%)';
+                    pulse.style.width = '100%';
+                    pulse.style.height = '100%';
+                    pulse.style.borderRadius = '50%';
+                    pulse.style.backgroundColor = 'transparent';
+                    pulse.style.border = '1px solid #D4AF37';
+                    pulse.style.opacity = '0';
+                    
+                    cityNode.appendChild(pulse);
+                });
+            }
+            
+            // Animate map when scrolled into view
+            function animateMap() {
+                const contactSection = document.getElementById('contact');
+                if (!isElementInViewport(contactSection)) return;
+                
+                // Animate the city nodes with delay
+                const cityNodes = document.querySelectorAll('.city-node');
+                cityNodes.forEach((node, index) => {
+                    setTimeout(() => {
+                        node.style.opacity = '1';
+                        node.style.transform = 'scale(1)';
+                        
+                        // Add pulsing animation
+                        const pulse = node.querySelector('.city-pulse');
+                        if (pulse) {
+                            setInterval(() => {
+                                pulse.style.animation = 'none';
+                                pulse.offsetHeight; // Trigger reflow
+                                pulse.style.animation = `pulse-map 2s infinite ${Math.random() * 1}s`;
+                            }, 2000);
+                            
+                            // Add the keyframe animation
+                            if (!document.querySelector('#map-pulse-keyframes')) {
+                                const keyframes = document.createElement('style');
+                                keyframes.id = 'map-pulse-keyframes';
+                                keyframes.textContent = `
+                                    @keyframes pulse-map {
+                                        0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+                                        100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+                                    }
+                                `;
+                                document.head.appendChild(keyframes);
+                            }
+                        }
+                        
+                        // Show city label on hover
+                        node.addEventListener('mouseenter', () => {
+                            const label = node.querySelector('.city-label');
+                            if (label) label.style.opacity = '1';
+                        });
+                        
+                        node.addEventListener('mouseleave', () => {
+                            const label = node.querySelector('.city-label');
+                            if (label) label.style.opacity = '0';
+                        });
+                    }, 300 + index * 150);
+                });
+                
+                // Remove the scroll event once animation is triggered
+                window.removeEventListener('scroll', animateMap);
+            }
+            
+            // Initialize the map
+            initGlobalMap();
+            
+            // Animate typed header
+            function animateContactHeader() {
+                const header = document.querySelector('.typewriter-contact');
+                if (!header) return;
+                
+                setTimeout(() => {
+                    header.style.opacity = '1';
+                    header.classList.add('typing-contact');
+                    
+                    // Animate the "24 hours" underline
+                    setTimeout(() => {
+                        const underline = document.querySelector('.animated-underline');
+                        if (underline) underline.style.width = '100%';
+                    }, 2500);
+                }, 800);
+            }
+            
+            // Contact form slide in animation
+            const contactCTA = document.getElementById('contact-cta');
+            const contactForm = document.getElementById('contact-form-container');
+            
+            if (contactCTA && contactForm) {
+                contactCTA.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Slide in the form
+                    contactForm.style.transform = 'translateX(0)';
+                    contactForm.style.opacity = '1';
+                });
+            }
+            
+            // Form submission with confetti
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Show success message
+                    form.innerHTML = `
+                        <div class="text-center py-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-[#D4AF37] mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <h3 class="text-xl font-semibold mb-2 text-white">Thank You!</h3>
+                            <p class="text-gray-300">A TAWIN advisor will contact you within 24 hours.</p>
+                        </div>
+                    `;
+                    
+                    // Trigger confetti animation
+                    const confettiCanvas = document.getElementById('confetti-canvas');
+                    if (confettiCanvas) {
+                        confettiCanvas.classList.remove('hidden');
+                        
+                        // Simple confetti effect
+                        const ctx = confettiCanvas.getContext('2d');
+                        confettiCanvas.width = window.innerWidth;
+                        confettiCanvas.height = window.innerHeight;
+                        
+                        const particles = [];
+                        const particleCount = 100;
+                        
+                        // Create gold confetti particles
+                        for (let i = 0; i < particleCount; i++) {
+                            particles.push({
+                                x: Math.random() * confettiCanvas.width,
+                                y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+                                size: Math.random() * 5 + 2,
+                                weight: Math.random() * 1 + 1,
+                                color: '#D4AF37'
+                            });
+                        }
+                        
+                        // Animation function
+                        function confettiAnimation() {
+                            ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+                            
+                            let particlesDone = 0;
+                            
+                            for (let i = 0; i < particles.length; i++) {
+                                const p = particles[i];
+                                
+                                ctx.fillStyle = p.color;
+                                ctx.beginPath();
+                                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                                ctx.closePath();
+                                ctx.fill();
+                                
+                                p.y += p.weight;
+                                p.x += Math.sin(p.weight) * 2;
+                                
+                                if (p.y > confettiCanvas.height) {
+                                    particlesDone++;
+                                }
+                            }
+                            
+                            // Continue animation until all particles are off-screen
+                            if (particlesDone < particles.length) {
+                                requestAnimationFrame(confettiAnimation);
+                            } else {
+                                // Hide canvas when animation is done
+                                setTimeout(() => {
+                                    confettiCanvas.classList.add('hidden');
+                                }, 1000);
+                            }
+                        }
+                        
+                        // Start the animation
+                        confettiAnimation();
+                    }
+                });
+            }
+            
+            // Initialize animations when scrolled to contact section
+            function checkContactSectionVisibility() {
+                const contactSection = document.getElementById('contact');
+                
+                if (isElementInViewport(contactSection)) {
+                    animateContactHeader();
+                    animateMap();
+                    
+                    // Remove the scroll listener once animation is triggered
+                    window.removeEventListener('scroll', checkContactSectionVisibility);
+                }
+            }
+            
+            // Add scroll event listeners
+            window.addEventListener('scroll', checkContactSectionVisibility);
+            window.addEventListener('scroll', animateMap);
+            
+            // Trigger check on initial load
+            setTimeout(checkContactSectionVisibility, 500);
+            
+            // Navigation to contact section
+            document.querySelectorAll('a[href="#contact"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Update sticky CTA to open contact form
+            document.querySelector('.sticky-cta a').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                
+                // Slight delay before showing form
+                setTimeout(() => {
+                    if (contactForm) {
+                        contactForm.style.transform = 'translateX(0)';
+                        contactForm.style.opacity = '1';
+                    }
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

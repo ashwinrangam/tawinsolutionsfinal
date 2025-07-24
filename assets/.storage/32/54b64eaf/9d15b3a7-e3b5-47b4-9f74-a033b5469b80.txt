@@ -1,0 +1,12 @@
+$ ls -la /workspace/uploads/workspace/shadcn-ui/src/components/layout/
+total 483
+drwxr-xr-x 10 root root  77824 Jul 18 19:51 .
+drwxr-xr-x 61 root root 356352 Jul 18 19:51 ..
+-rw-r--r--  1 root root   5407 Jul 18 19:51 AboutSection.tsx
+-rw-r--r--  1 root root  10866 Jul 18 19:51 ContactSection.tsx
+-rw-r--r--  1 root root   6946 Jul 18 19:51 Footer.tsx
+-rw-r--r--  1 root root   6069 Jul 18 20:18 HeroSection.tsx
+-rw-r--r--  1 root root   4893 Jul 18 19:51 Navbar.tsx
+-rw-r--r--  1 root root   9377 Jul 18 20:18 ServicesSection.tsx
+-rw-r--r--  1 root root   6884 Jul 18 19:51 TeamSection.tsx
+-rw-r--r--  1 root root   7811 Jul 18 19:51 TestimonialsSection.tsx

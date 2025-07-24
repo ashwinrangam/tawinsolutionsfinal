@@ -1,0 +1,50 @@
+$ ls -la
+total 11890
+drwxr-xr-x 349 root root 6094848 Jul 18 16:46 .
+drwxr-xr-x   1 root root     138 Jul 18 16:37 ..
+-rw-r--r--   1 root root  629386 Jul 18 16:25 .MGXEnv.json
+drwxr-xr-x   2 root root    4096 Jul 18 16:46 .MGXTools
+drwxr-xr-x 242 root root 2846720 Jul 18 16:11 .git
+-rw-rw-r--   1 root root    1472 Jul 18 16:00 .gitattributes
+-rw-rw-r--   1 root root     476 Jul 18 16:00 .gitignore
+-rw-r--r--   1 root root    1254 Jul 18 16:46 .timeline.json
+-rw-rw-r--   1 root root    3566 Jul 18 16:11 .wiki.md
+drwxrwxr-x  98 root root  671744 Jul 18 16:38 shadcn-ui
+drwxrwxr-x   4 root root 1921024 Jul 18 16:00 uploads
+$ cd shadcn-ui && ls -la
+
+total 7222
+drwxrwxr-x  98 root root  671744 Jul 18 16:38 .
+drwxr-xr-x 349 root root 6094848 Jul 18 16:46 ..
+-rw-rw-r--   1 root root     253 Jul 18 16:00 .gitignore
+drwxrwxr-x   3 root root    8192 Jul 18 16:00 .mgx
+-rw-rw-r--   1 root root    1138 Jul 18 16:00 README.md
+-rw-rw-r--   1 root root     414 Jul 18 16:00 components.json
+-rw-rw-r--   1 root root     789 Jul 18 16:00 eslint.config.js
+-rw-rw-r--   1 root root    1362 Jul 18 16:00 index.html
+drwxr-xr-x  14 root root    4096 Jul 18 16:38 node_modules
+-rw-rw-r--   1 root root    2716 Jul 18 16:00 package.json
+-rw-r--r--   1 root root  174035 Jul 18 16:12 pnpm-lock.yaml
+-rw-rw-r--   1 root root      80 Jul 18 16:00 postcss.config.js
+drwxrwxr-x   6 root root   20480 Jul 18 16:00 public
+drwxrwxr-x  75 root root  405504 Jul 18 16:00 src
+-rw-rw-r--   1 root root    3639 Jul 18 16:00 tailwind.config.ts
+-rw-rw-r--   1 root root     818 Jul 18 16:00 template_config.json
+-rw-rw-r--   1 root root     652 Jul 18 16:00 tsconfig.app.json
+-rw-rw-r--   1 root root     381 Jul 18 16:00 tsconfig.json
+-rw-rw-r--   1 root root     481 Jul 18 16:00 tsconfig.node.json
+-rw-rw-r--   1 root root     294 Jul 18 16:00 vite.config.ts
+$ ls -la src
+
+total 1427
+drwxrwxr-x 75 root root 405504 Jul 18 16:00 .
+drwxrwxr-x 98 root root 671744 Jul 18 16:38 ..
+-rw-rw-r--  1 root root      0 Jul 18 16:00 App.css
+-rw-rw-r--  1 root root    924 Jul 18 16:00 App.tsx
+drwxrwxr-x 60 root root 344064 Jul 18 16:00 components
+drwxrwxr-x  4 root root  12288 Jul 18 16:00 hooks
+-rw-rw-r--  1 root root     29 Jul 18 16:00 index.css
+drwxrwxr-x  4 root root  12288 Jul 18 16:00 lib
+-rw-rw-r--  1 root root    161 Jul 18 16:00 main.tsx
+drwxrwxr-x  4 root root  12288 Jul 18 16:00 pages
+-rw-rw-r--  1 root root     38 Jul 18 16:00 vite-env.d.ts

@@ -1,0 +1,41 @@
+$ cd /workspace/uploads/workspace/shadcn-ui && pnpm run lint
+
+> shadcnui@ lint /workspace/uploads/workspace/shadcn-ui
+> eslint --quiet ./src
+
+
+/workspace/uploads/workspace/shadcn-ui/src/components/ui/ScrollytellingProvider.tsx
+  147:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  148:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  149:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  204:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  205:8   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  206:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/workspace/uploads/workspace/shadcn-ui/src/components/ui/StorytellingBackground.tsx
+   73:18  error  React Hook "useTransform" is called in function "renderBackground" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"  react-hooks/rules-of-hooks
+  116:18  error  React Hook "useTransform" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function                                                                                                      react-hooks/rules-of-hooks
+  117:18  error  React Hook "useTransform" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function                                                                                                      react-hooks/rules-of-hooks
+  141:22  error  React Hook "useTransform" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function                                                                                                      react-hooks/rules-of-hooks
+
+✖ 10 problems (10 errors, 0 warnings)
+
+ ELIFECYCLE  Command failed with exit code 1.
+$ cd /workspace/uploads/workspace/shadcn-ui && pnpm run lint
+
+
+> shadcnui@ lint /workspace/uploads/workspace/shadcn-ui
+> eslint --quiet ./src
+
+$ cd /workspace/uploads/workspace/shadcn-ui && pnpm run lint
+
+
+> shadcnui@ lint /workspace/uploads/workspace/shadcn-ui
+> eslint --quiet ./src
+
+$ cd /workspace/uploads/workspace/shadcn-ui && pnpm run lint
+
+
+> shadcnui@ lint /workspace/uploads/workspace/shadcn-ui
+> eslint --quiet ./src
+

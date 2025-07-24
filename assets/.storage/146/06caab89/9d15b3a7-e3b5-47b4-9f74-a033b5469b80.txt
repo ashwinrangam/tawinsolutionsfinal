@@ -1,0 +1,26 @@
+$ cd /workspace/uploads/workspace/shadcn-ui && pnpm add gsap
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 99, reused 98, downloaded 0, added 0
+Progress: resolved 388, reused 356, downloaded 1, added 0
+Packages: +1
++
+Progress: resolved 450, reused 375, downloaded 1, added 1, done
+
+dependencies:
++ gsap 3.13.0
+
+Done in 3.8s
+$ cd /workspace/uploads/workspace/shadcn-ui && pnpm run lint
+
+
+> shadcnui@ lint /workspace/uploads/workspace/shadcn-ui
+> eslint --quiet ./src
+
+
+/workspace/uploads/workspace/shadcn-ui/src/components/ui/PremiumScrollProvider.tsx
+  33:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  37:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 2 problems (2 errors, 0 warnings)
+
+ ELIFECYCLE  Command failed with exit code 1.
