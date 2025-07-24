@@ -124,8 +124,13 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className="w-full text-center text-xs text-gray-400 mt-8">
-          Website built and maintained by Ashwin Rangamgari
+        <div className="w-full flex flex-col items-center mt-12">
+          <div className="flex items-center space-x-2 mb-2">
+            <span className="text-2xl md:text-3xl text-gold font-bold">★</span>
+            <span className="text-lg md:text-xl font-extrabold bg-gradient-to-r from-gold via-yellow-300 to-gold text-transparent bg-clip-text drop-shadow-lg tracking-wide uppercase">Crafted by Ashwin Rangamgari</span>
+            <span className="text-2xl md:text-3xl text-gold font-bold">★</span>
+          </div>
+          <div className="text-xs md:text-sm text-gray-400 italic tracking-wide">Vision, code, and design — all by Ashwin Rangamgari</div>
         </div>
       </div>
     </footer>
