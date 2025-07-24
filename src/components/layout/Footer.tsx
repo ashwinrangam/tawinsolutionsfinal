@@ -124,29 +124,10 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className="w-full flex justify-center items-center mt-8 mb-2">
-          <span className="inline-block mr-2 align-middle">
-            <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="18" cy="18" r="16" stroke="#FFD700" strokeWidth="2.5" fill="none" />
-              <circle cx="18" cy="18" r="8" stroke="#FFD700" strokeWidth="1.5" fill="none" strokeDasharray="12 12" />
-              <circle cx="18" cy="18" r="2.5" fill="#FFD700" />
-              <path d="M14.5 16.5c1.5-2 5-2 6.5 0" stroke="#FFD700" strokeWidth="1.2" strokeLinecap="round" fill="none" />
-              <circle cx="15.5" cy="15.5" r="0.7" fill="#FFD700" />
-              <circle cx="20.5" cy="15.5" r="0.7" fill="#FFD700" />
-            </svg>
-          </span>
-          <span className="text-base md:text-lg font-bold text-gold tracking-wide align-middle">CRAFTED BY ASHWIN RANGAMGARI</span>
-          <span className="inline-block ml-2 align-middle">
-            <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="18" cy="18" r="16" stroke="#FFD700" strokeWidth="2.5" fill="none" />
-              <circle cx="18" cy="18" r="8" stroke="#FFD700" strokeWidth="1.5" fill="none" strokeDasharray="12 12" />
-              <circle cx="18" cy="18" r="2.5" fill="#FFD700" />
-              <path d="M14.5 16.5c1.5-2 5-2 6.5 0" stroke="#FFD700" strokeWidth="1.2" strokeLinecap="round" fill="none" />
-              <circle cx="15.5" cy="15.5" r="0.7" fill="#FFD700" />
-              <circle cx="20.5" cy="15.5" r="0.7" fill="#FFD700" />
-            </svg>
-          </span>
-        </div>
+      </div>
+      <div className="w-full flex flex-col items-center mt-8 mb-2">
+        <img src="/ar-ashwin.svg" alt="Created by Ashwin Rangamgari" style={{ width: 64, height: 64, opacity: 0.7 }} />
+        <span className="text-xs text-gray-400 mt-2">Site by Ashwin Rangamgari</span>
       </div>
     </footer>
   );
