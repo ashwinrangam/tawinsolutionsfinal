@@ -601,26 +601,26 @@ export default function EnhancedAboutSection() {
         
         {/* Final quote with enhanced visibility and animations - removed extra box */}
         <motion.div 
-          className="max-w-4xl mx-auto flex flex-col items-center justify-center mb-16 px-4"
+          className="max-w-3xl mx-auto flex flex-col items-center justify-center mb-8 px-2"
           style={{ y: quoteY }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: false, margin: "-20% 0px" }}
+          viewport={{ once: false, margin: "-10% 0px" }}
           transition={{ duration: 1.2 }}
         >
           {/* Grand Quote Block */}
-          <div className="w-full flex flex-col items-center mb-10">
-            <span className="text-5xl md:text-6xl text-gold/20 font-serif mb-2 self-start">“</span>
-            <p className="text-2xl md:text-4xl text-gray-100 italic font-semibold text-center leading-snug mb-4 drop-shadow-[0_2px_12px_rgba(212,175,55,0.10)]">
+          <div className="w-full flex flex-col items-center mb-2">
+            <span className="text-4xl md:text-5xl text-gold/20 font-serif mb-1 self-start">“</span>
+            <p className="text-xl md:text-2xl text-gray-100 italic font-semibold text-center leading-snug mb-2 drop-shadow-[0_2px_12px_rgba(212,175,55,0.10)]">
               At TAWIN, we don't just adapt to technological change—we create it.<br/>
               Our mission is to harness emerging technologies to solve tomorrow's challenges, today.
             </p>
-            <span className="text-5xl md:text-6xl text-gold/20 font-serif mt-2 self-end">”</span>
-            <div className="w-24 h-1 rounded-full bg-gradient-to-r from-gold via-yellow-300 to-gold shadow-[0_0_8px_2px_rgba(212,175,55,0.25)] animate-pulse-soft mb-2"></div>
+            <span className="text-4xl md:text-5xl text-gold/20 font-serif mt-1 self-end">”</span>
+            <div className="w-16 h-1 rounded-full bg-gradient-to-r from-gold via-yellow-300 to-gold shadow-[0_0_8px_2px_rgba(212,175,55,0.25)] animate-pulse-soft mb-1"></div>
           </div>
           {/* CEO Avatar and Description below quote */}
           <motion.div
-            className="flex flex-col items-center flex-shrink-0 relative justify-center mt-2 md:mt-4"
+            className="flex flex-col items-center flex-shrink-0 relative justify-center mt-0 mb-0"
             style={{ y: ceoY }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -631,19 +631,19 @@ export default function EnhancedAboutSection() {
                 src={ceoImg}
                 alt="CEO/Founder"
                 className="w-32 h-32 md:w-44 md:h-44 rounded-full object-cover border-4 border-gold shadow-lg"
-                style={{ boxShadow: '0 4px 24px 0 rgba(212,175,55,0.18), 0 0 0 8px rgba(212,175,55,0.10)', objectFit: 'cover', objectPosition: 'center', transform: 'scale(1.35)' }}
+                style={{ boxShadow: '0 4px 24px 0 rgba(212,175,55,0.18), 0 0 0 8px rgba(212,175,55,0.10)', objectFit: 'cover', objectPosition: 'center', transform: 'scale(1.15)' }}
               />
-              <span className="absolute inset-0 rounded-full pointer-events-none" style={{ boxShadow: '0 0 32px 8px rgba(212,175,55,0.18)' }}></span>
+              <span className="absolute inset-0 rounded-full pointer-events-none" style={{ boxShadow: '0 0 24px 6px rgba(212,175,55,0.18)' }}></span>
             </span>
             <motion.div
-              className="mt-16 text-center w-full space-y-1"
-              initial={{ opacity: 0, y: 20 }}
+              className="mt-4 text-center w-full space-y-1"
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 }}
             >
-              <h4 className="text-xl font-bold leading-tight bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 text-transparent bg-clip-text drop-shadow-[0_2px_8px_rgba(212,175,55,0.5)]">Ravinder Rangamgari</h4>
-              <p className="text-base text-gray-300 font-medium">Founder & CTO, TAWIN Solutions</p>
-              <p className="text-sm text-gray-400 italic">Visionary leader with a passion for building tomorrow's technology and empowering teams to innovate at scale.</p>
+              <h4 className="text-lg font-bold leading-tight bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 text-transparent bg-clip-text drop-shadow-[0_2px_8px_rgba(212,175,55,0.5)]">Ravinder Rangamgari</h4>
+              <p className="text-sm text-gray-300 font-medium">Founder & CTO, TAWIN Solutions</p>
+              <p className="text-xs text-gray-400 italic">Visionary leader with a passion for building tomorrow's technology and empowering teams to innovate at scale.</p>
             </motion.div>
           </motion.div>
         </motion.div>

@@ -360,8 +360,8 @@ export default function EnhancedContactSection() {
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                   ),
-                  title: "Address",
-                  content: "6227 lake brook dr celina 75009 texas"
+                  title: "Location",
+                  content: "Texas, United States"
                 },
                 {
                   icon: (
